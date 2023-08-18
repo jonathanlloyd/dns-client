@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+import sys
+
+from dnsclient import (
+	DNSClient,
+)
+
+
+if __name__ == '__main__':
+	if len(sys.argv) != 2:
+		print('Usage: dnsclient <domain>')
+		exit(1)
+
+	domain = sys.argv[1]
+	client = DNSClient()
+	result = client.lookup(domain)
+
+
+	print('=====> FOUND IP')
+	print(result)
